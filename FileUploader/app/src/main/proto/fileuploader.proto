@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package uploader;
+
+option java_package = "com.proto.uploader";
+option java_multiple_files = true;
+
+service FileUploader {
+    rpc UploadFile (FileRequest) returns (FileResponse);
+}
+
+message FileRequest {
+    string fileName = 1;
+    bytes fileData = 2;
+}
+
+message FileResponse {
+    string message = 1;
+    bool success = 2;
+}
